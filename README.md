@@ -8,21 +8,21 @@
 
 # Warehousing:
 
-The Data: I started with two CSV files.
+## The Data: I started with two CSV files.
 
-Cleaning: The data wasn't perfect, so I spent time fixing errors and making sure everything matched up before I started the analysis.
+## Cleaning: The data wasn't perfect, so I spent time fixing errors and making sure everything matched up before I started the analysis.
 
-The Setup: I combined both sources into one simple model so that anyone (not just tech people) could run a query and get an answer.
+## The Setup: I combined both sources into one simple model so that anyone (not just tech people) could run a query and get an answer.
 
-Note: I focused on the most recent data for this project rather than tracking every single change over time.
+## Note: I focused on the most recent data for this project rather than tracking every single change over time.
 
 # Analytics and Reporting:
 
-Customer Behavior: Who is buying what?
+## Customer Behavior: Who is buying what?
 
-Product Performance: Which items are the "stars" and which aren't selling?
+## Product Performance: Which items are the "stars" and which aren't selling?
 
-Sales Trends: Are we doing better this month than last month?
+## Sales Trends: Are we doing better this month than last month?
 
 
 
