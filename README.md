@@ -1,12 +1,12 @@
 # sql-data-warehouse-proj
 
-#This project aimed to take raw, messy data and turn it into something a business can actually use to make decisions. 
-#It covers everything from the building warehouse in  back-end layer to the analytical insights at the end.
+# This project aimed to take raw, messy data and turn it into something a business can actually use to make decisions. 
+# It covers everything from the building warehouse in  back-end layer to the analytical insights at the end.
 
-#What I wanted to achieve: I used SQL Server to build a warehouse that brings together sales info from two different places: an ERP and a CRM system. Usually, this data is all over the place, so my goal was to get it into one clean, easy-to-use spot.
+# What I wanted to achieve: I used SQL Server to build a warehouse that brings together sales info from two different places: an ERP and a CRM system. Usually, this data is all over the place, so my goal was to get it into one clean, easy-to-use spot.
 
 
-###Warehousing:
+### Warehousing:
 
 The Data: I started with two CSV files.
 
@@ -16,7 +16,7 @@ The Setup: I combined both sources into one simple model so that anyone (not jus
 
 Note: I focused on the most recent data for this project rather than tracking every single change over time.
 
-###Analytics and Reporting:
+### Analytics and Reporting:
 
 Customer Behavior: Who is buying what?
 
