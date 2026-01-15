@@ -1,0 +1,16 @@
+SOURCES           BRONZE LAYER (Raw)         SILVER LAYER (Clean)       GOLD LAYER (Star Schema)
+   |                    |                          |                          |
+   |                    |                          |                          |
+[ CRM ]------------>[ crm_sales_details ]----->[ crm_sales_details ]------>[ fact_sales    ]
+   |  |                 |                          |                          |
+   |  +------------>[ crm_cust_info     ]----->[ crm_cust_info     ]--+       |
+   |  |                 |                          |                  |       |
+   |  +------------>[ crm_prd_info      ]----->[ crm_prd_info      ]--+---+   |
+   |                    |                          |                  |   |   |
+   |                    |                          |                  |   |   |
+[ ERP ]------------>[ erp_cust_az12     ]----->[ erp_cust_az12     ]--+   +-->[ dim_customers ]
+   |  |                 |                          |                  |
+   |  +------------>[ erp_loc_a101      ]----->[ erp_loc_a101      ]--+
+   |  |                 |                          |
+   |  +------------>[ erp_px_cat_g1v2   ]----->[ erp_px_cat_g1v2   ]----->[ dim_products  ]
+   |                    |                          |
