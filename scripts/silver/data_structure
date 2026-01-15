@@ -9,12 +9,12 @@ Sales & Orders
                         |                 Customer Information                      Extra Customer Information (Birthdate)
                         |                             |                                               |
                         +---------------->[ crm_cust_info   ]                             [ erp_cust_az12   ]
-                                          |  cst_id         |<----------------------------|  cid            |
-                                          |  cst_key        |<----------+                 |_________________|
+                                          |  cst_id         |                             |  cid            |
+                                          |  cst_key        |<----------+<----------------|_________________|
                                           |_________________|           |
                                                                         |
                                                                         |           Location of Customers (Country)
                                                                         |                             |
-                                                                        +-----------------[ erp_loc_a101    ]
-                                                                                          |  cid            |
+                                                                        |                 [ erp_loc_a101    ]
+                                                                        +-----------------|  cid            |
                                                                                           |_________________|
