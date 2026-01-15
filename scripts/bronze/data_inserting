@@ -1,3 +1,4 @@
+#DOWNLOADS FILES USING STRING MATCHING ON TABLE NAMES IN SNOWFLAKE WITH NAMES OF FILES ON LOCAL MACHINE
 import snowflake.connector
 from snowflake.connector.pandas_tools import write_pandas
 import os
