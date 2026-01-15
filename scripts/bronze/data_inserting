@@ -1,0 +1,65 @@
+import snowflake.connector
+from snowflake.connector.pandas_tools import write_pandas
+import os
+
+CTX = snowflake.connector.connect(
+    user='',
+    password='',
+    account='',    
+    warehouse='COMPUTE_WH',
+    database='WAREHOUSE_DB',
+    schema='BRONZE'
+)
+LOCAL_FOLDER_PATH = r'/Users/macos/Documents/sql-data-warehouse-project/datasets'
+
+
+
+def main():
+    try:
+        cur = CTX.cursor()
+
+        # 1. GET TABLE NAMES FROM SNOWFLAKE
+        print("Fetching table names from Snowflake...")
+        cur.execute("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = CURRENT_SCHEMA()")
+        snowflake_tables = [row[0] for row in cur.fetchall()]
+        print(f"Found {len(snowflake_tables)} tables in Snowflake: {snowflake_tables}")
+
+        # 2. SCAN LOCAL FILES
+        local_files = [f for f in os.listdir(LOCAL_FOLDER_PATH) if f.endswith('.csv')]
+        print(f"Found {len(local_files)} CSV files locally.")
+
+        # 3. MATCH AND UPLOAD
+        for table in snowflake_tables:
+
+            matched_file = None
+            
+            for filename in local_files:
+                file_stem = filename.replace('.csv', '').upper()
+                
+                if file_stem in table:
+                    matched_file = filename
+                    break # Stop looking for files for this table
+            
+            if matched_file:
+                print(f"✅ MATCH: Table '{table}' matches file '{matched_file}'")
+                
+                file_path = os.path.join(LOCAL_FOLDER_PATH, matched_file)
+                df = pd.read_csv(file_path)
+                
+                df.columns = [c.upper() for c in df.columns]
+
+                print(f"   -> Uploading {len(df)} rows to {table}...")
+                success, nchunks, nrows, _ = write_pandas(CTX, df, table)
+                print(f"   -> Success! Loaded {nrows} rows.")
+                
+            else:
+                print(f"⚠️  NO MATCH found for table '{table}'. Skipping.")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    finally:
+        CTX.close()
+
+if __name__ == "__main__":
+    main()
+    
