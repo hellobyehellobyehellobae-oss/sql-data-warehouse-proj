@@ -1,0 +1,60 @@
+CREATE OR REPLACE TABLE SILVER.CRM_CUST_INFO (
+    cst_id               NUMBER,
+    cst_key              STRING,
+    cst_firstname        STRING,
+    cst_lastname         STRING,
+    cst_material_status  STRING,
+    cst_gndr             STRING,
+    cst_create_date      DATE,
+    dwh_create_ts        TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+CREATE OR REPLACE TABLE SILVER.CRM_PRD_INFO (
+    prd_id           NUMBER,
+    prd_key          STRING,
+    prd_nm           STRING,
+    prd_cost         NUMBER,
+    prd_line         STRING,
+    prd_start_dt     TIMESTAMP_NTZ,
+    prd_end_dt       TIMESTAMP_NTZ,
+    dwh_create_ts    TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+
+CREATE OR REPLACE TABLE SILVER.CRM_SALES_DETAILS (
+    sls_ord_num     STRING,
+    sls_prd_key     STRING,
+    sls_cust_id     NUMBER,
+    sls_order_dt    NUMBER,
+    sls_ship_dt     NUMBER,
+    sls_due_dt      NUMBER,
+    sls_sales       NUMBER,
+    sls_quantity    NUMBER,
+    sls_price       NUMBER,
+    dwh_create_ts   TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+
+CREATE OR REPLACE TABLE SILVER.ERP_CUST_AZ12 (
+    cid             STRING,
+    bdate           DATE,
+    gen             STRING,
+    dwh_create_ts   TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+
+CREATE OR REPLACE TABLE SILVER.ERP_LOC_A101 (
+    cid             STRING,
+    cntry           STRING,
+    dwh_create_ts   TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
+
+CREATE OR REPLACE TABLE SILVER.ERP_PX_CAT_G1V2 (
+    id              STRING,
+    cat             STRING,
+    subcat          STRING,
+    maintenance     STRING,
+    dwh_create_ts   TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+);
+
