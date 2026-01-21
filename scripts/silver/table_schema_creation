@@ -10,15 +10,17 @@ CREATE OR REPLACE TABLE SILVER.CRM_CUST_INFO (
 );
 
 CREATE OR REPLACE TABLE SILVER.CRM_PRD_INFO (
-    prd_id           NUMBER,
+    prd_id           INTEGER,
+    cat_id           STRING,
     prd_key          STRING,
     prd_nm           STRING,
-    prd_cost         NUMBER,
+    prd_cost         INTEGER,
     prd_line         STRING,
-    prd_start_dt     TIMESTAMP_NTZ,
-    prd_end_dt       TIMESTAMP_NTZ,
-    dwh_create_ts    TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
+    prd_start_dt     DATE,
+    prd_end_dt       DATE,
+    dwh_create_date  TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP()
 );
+
 
 
 CREATE OR REPLACE TABLE SILVER.CRM_SALES_DETAILS (
