@@ -15,18 +15,18 @@ SELECT
     sls_cust_id,
 
     CASE
-        WHEN sls_order_dt = 0 OR LEN(sls_order_dt) != 8 THEN NULL
-        ELSE CAST(CAST(sls_order_dt AS VARCHAR) AS DATE)
+        WHEN sls_order_dt = 0 OR LENGTH(TO_VARCHAR(sls_order_dt)) != 8 THEN NULL
+        ELSE TRY_TO_DATE(TO_VARCHAR(sls_order_dt), 'YYYYMMDD')
     END AS sls_order_dt,
 
     CASE
-        WHEN sls_ship_dt = 0 OR LEN(sls_ship_dt) != 8 THEN NULL
-        ELSE CAST(CAST(sls_ship_dt AS VARCHAR) AS DATE)
+        WHEN sls_ship_dt = 0 OR LENGTH(TO_VARCHAR(sls_ship_dt)) != 8 THEN NULL
+        ELSE TRY_TO_DATE(TO_VARCHAR(sls_ship_dt), 'YYYYMMDD')
     END AS sls_ship_dt,
 
     CASE
-        WHEN sls_due_dt = 0 OR LEN(sls_due_dt) != 8 THEN NULL
-        ELSE CAST(CAST(sls_due_dt AS VARCHAR) AS DATE)
+        WHEN sls_due_dt = 0 OR LENGTH(TO_VARCHAR(sls_due_dt)) != 8 THEN NULL
+        ELSE TRY_TO_DATE(TO_VARCHAR(sls_due_dt), 'YYYYMMDD')
     END AS sls_due_dt,
 
     CASE
@@ -44,5 +44,4 @@ SELECT
         THEN sls_sales / NULLIF(sls_quantity, 0)
         ELSE sls_price
     END AS sls_price
-
 FROM bronze.crm_sales_details;
