@@ -1,0 +1,52 @@
+         Sales Data Mart (Star Schema)
+        ==============================
+
+
+        ┌──────────────────────────────┐
+        │     gold.dim_customers       │
+        ├──────────────────────────────┤
+        │ PK  customer_key             │
+        │     customer_id              │
+        │     customer_number          │
+        │     first_name               │
+        │     last_name                │
+        │     country                  │
+        │     marital_status           │
+        │     gender                   │
+        │     birthdate                │
+        │     country                  │
+        └───────────────┬──────────────┘
+                        │
+                        │
+                        │
+        ┌───────────────▼──────────────┐
+        │        gold.fact_sales        │
+        ├──────────────────────────────┤
+        │     order_number              │
+        │ FK1 product_key               │
+        │ FK2 customer_key              │
+        │     order_date                │
+        │     shipping_date             │
+        │     due_date                  │
+        │     sales_amount              │
+        │     quantity                  │
+        │     price                     │
+        └───────────────┬──────────────┘
+                        │
+                        │
+                        │
+        ┌───────────────▼──────────────┐
+        │      gold.dim_products       │
+        ├──────────────────────────────┤
+        │ PK  product_key              │
+        │     product_id               │
+        │     product_number           │
+        │     product_name             │
+        │     category_id              │
+        │     category                 │
+        │     subcategory              │
+        │     maintenance              │
+        │     cost                     │
+        │     product_line             │
+        │     start_date               │
+        └──────────────────────────────┘
