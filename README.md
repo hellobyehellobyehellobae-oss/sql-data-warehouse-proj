@@ -1,5 +1,5 @@
 # Snowflake SQL Data Project
-## Production-Style Data Warehousing, EDA, and Business Analytics
+## Data Warehousing, EDA, and Business Analytics
 
 ### Project Purpose
 This repository demonstrates a structured, production-style analytics workflow in Snowflake, covering:
